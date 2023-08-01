@@ -24,7 +24,7 @@
 * Mybatis
 * [Sa-Token](https://github.com/dromara/sa-token)
 
-> 部分代码参考了**[RuoYi-Vue](https://gitee.com/y_project/RuoYi-Vue)**框架
+> 部分代码参考了[RuoYi-Vue](https://gitee.com/y_project/RuoYi-Vue)框架
 
 ## 数据存储
 
