@@ -1,0 +1,42 @@
+version: "3"
+
+services:
+  myapp_mysql:
+    image: mysql:8.0
+    container_name: myapp_mysql
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 6JFNrWBylDPVlRDp #设置root帐号密码
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql/data:/var/lib/mysql #数据文件挂载
+      - ./mysql/conf:/etc/mysql/conf.d #配置文件挂载
+      - ./mysql/log:/var/log/mysql #日志文件挂载
+
+  myapp_redis:
+    image: redis:7.2
+    container_name: myapp_redis
+    command: redis-server --appendonly yes --requirepass 6JFNrWBylDPVlRDp
+    restart: always
+    volumes:
+      - ./redis/data:/data #数据文件挂载
+    ports:
+      - "6379:6379"
+
+  myapp:
+    image: java:8
+    container_name: myapp
+    environment:
+      - TZ=Asia/Shanghai
+    volumes:
+      - ./java:/root
+    working_dir: /root
+    command: java -jar -Dloader.path=resources,lib myapp.jar
+    restart: always
+    ports:
+      - "12345:12345"
+    depends_on:
+      - myapp_mysql
+      - myapp_redis

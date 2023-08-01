@@ -1,10 +1,8 @@
-# Information System Boot
+# myapp
 
 ## 简介
 
-本项目主要是一些后台系统的“基础设施”，可用于快速搭建项目。
-
-代码结构相对简单，对初学者比较友好。
+用于快速搭建基于SSM框架的Web后端项目
 
 ## 基本内容
 
@@ -24,13 +22,12 @@
 * Mybatis
 * [Sa-Token](https://github.com/dromara/sa-token)
 
-> 部分代码参考了**[RuoYi-Vue](https://gitee.com/y_project/RuoYi-Vue)**框架
+> 部分代码参考了[RuoYi-Vue](https://gitee.com/y_project/RuoYi-Vue)框架
 
 ## 数据存储
 
 * MySQL
 * Redis
-* MongoDB
 
 ## 其他依赖
 
