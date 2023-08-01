@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.csu.ycepspring.mapper.UserMapper">
+    <insert id="createUser">
+        <selectKey keyProperty="account" order="AFTER" resultType="java.lang.Integer">
+            select last_insert_id()
+        </selectKey>
+        insert into user(role_id)
+        values (#{roleId});
+    </insert>
+    <insert id="insertAuthLocal">
+        insert into auth_local(account, username, password)
+        values (#{account}, #{username}, #{password});
+    </insert>
+
+    <select id="selectPasswordByUsername" resultType="cn.edu.csu.ycepspring.entity.AuthLocal">
+        select account, password
+        from auth_local
+        where username = #{username};
+    </select>
+    <select id="selectRoleIdByAccount" resultType="java.lang.Integer">
+        select role_id
+        from user
+        where account = #{account};
+    </select>
+    <select id="selectAllUsername" resultType="java.lang.String">
+        select username
+        from auth_local;
+    </select>
+</mapper>
