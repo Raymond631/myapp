@@ -1,38 +1,34 @@
 # myapp
 
-## 简介
+## 用途
 
 用于快速搭建基于SSM框架的Web后端项目
 
-## 基本内容
+## 代码功能
 
-* 统一响应
-* 统一异常处理
-* 统一日志
-* 统一鉴权
-* 密码加密
-* 跨域
-* 工具类
-* 基础接口：验证码、登录、注册、注销登录
+1. 统一响应
+2. 统一异常处理
+3. 审计日志
+4. 密码加密
+5. 跨域处理
+6. Redis缓存
+7. 验证码
+8. 基础接口：验证码、注册、登录、登出
 
-## 使用框架
+## 部署特点
+1. 多配置文件（dev、prod）
+2. 打包时将资源文件和依赖包从jar包中分离
+3. docker-compose部署
+4. nginx反向代理
 
-* Spring Boot
-* Spring MVC
-* Mybatis
-* [Sa-Token](https://github.com/dromara/sa-token)
 
-> 部分代码参考了[RuoYi-Vue](https://gitee.com/y_project/RuoYi-Vue)框架
+## 框架
 
-## 数据存储
+* 基础框架：Spring Boot、Spring MVC、MyBatis
+* 鉴权：Sa-Token
+* 工具类：Hutool
+
+## 数据库
 
 * MySQL
 * Redis
-
-## 其他依赖
-
-* Druid（连接池）
-* Lombok（代码生成）
-* Validation（参数校验）
-* Kaptcha（验证码）
-* Argon2（加密算法）
